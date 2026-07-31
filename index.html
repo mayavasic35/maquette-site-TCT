@@ -3,11 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Sécurité : ces balises fonctionnent même sur un hébergement sans accès serveur (ex. GitHub Pages).
-     Si le site passe sur Apache/OVH, le fichier .htaccess fourni pose en plus les en-têtes
-     que le navigateur n'accepte pas en meta (X-Frame-Options, HSTS, Permissions-Policy...). -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.google.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
-<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Tennis Club Tremblaysien </title>
 <link rel="icon" type="image/png" sizes="64x64" href="images/logo.png">
 <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png">
@@ -366,24 +361,8 @@ nav.scrolled .hamburger span { background: var(--dark); }
 }
 .coach-info { padding: 1.4rem 1.5rem; }
 .coach-name { font-family: 'Barlow Condensed',sans-serif; font-weight: 900; font-size: 1.4rem; text-transform: uppercase; color: var(--dark); margin-bottom: 0.1rem; }
-.coach-role { font-size: 0.68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--lime-dark); margin-bottom: 0.8rem; }
+.coach-role { font-size: 0.68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--lime-dark); }
 .coach-bio { font-size: 0.82rem; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
-.coach-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-.ct { font-size: 0.67rem; font-weight: 600; letter-spacing: 0.5px; padding: 0.18rem 0.6rem; border-radius:0; background: var(--light); color: var(--dark); border: 1px solid var(--border); }
-
-/* PLANNING */
-.pt { width: 100%; border-collapse: collapse; margin-top: 2.5rem; }
-.pt thead th {
-  font-size: 0.67rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--muted); padding: 0.6rem 1rem; text-align: left; border-bottom: 2px solid var(--border);
-}
-.pt tbody td { font-size: 0.83rem; color: var(--dark); padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
-.pt tbody tr:hover td { background: rgba(201,226,25,0.04); }
-.niv { font-size: 0.67rem; font-weight: 700; letter-spacing: 0.5px; padding: 0.18rem 0.65rem; border-radius:0; }
-.n-deb { background: rgba(80,180,80,0.12); color: #2a6a2a; }
-.n-int { background: rgba(201,226,25,0.2); color: #5a6800; }
-.n-av { background: rgba(255,140,40,0.15); color: #8a4a00; }
-.n-comp { background: rgba(200,40,40,0.12); color: #8a1a1a; }
 
 /* ─── PAGE CONTACT ─── */
 .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 4rem; margin-top: 3.5rem; }
@@ -830,7 +809,7 @@ textarea.fi { min-height: 120px; resize: vertical; }
   <!-- INFO BAND -->
   <div class="info-band">
     <p>Inscriptions ouvertes  Saison 2026/2027</p>
-    <p>Lun–Ven 9h–22h <span>·</span> Sam 9h–20h <span>·</span> Dim 9h–19h</p>
+    <p>Lun–Ven 9h–21h <span>·</span> Sam 8h–20h <span>·</span> Dim 9h–18h</p>
     <p>18 rue Jules Ferry, 93290, Tremblay-en-France</p>
   </div>
 
@@ -1133,35 +1112,6 @@ textarea.fi { min-height: 120px; resize: vertical; }
     </div>
   </section>
 
-  <div class="divider"></div>
-
-  <!-- PLANNING DES COURS -->
-  <section class="section bg-off reveal">
-    <div class="tag">Emploi du temps</div>
-    <h2 class="h2">Planning des Cours</h2>
-    <p class="lead">Saison 2025/2026  planning indicatif. Des créneaux supplémentaires peuvent être ajoutés selon la demande.</p>
-    <div style="overflow-x:auto;margin-top:2rem">
-      <table class="pt">
-        <thead>
-          <tr><th>Jour</th><th>Horaire</th><th>Cours</th><th>Moniteur</th><th>Niveau</th><th>Court</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Lundi</td><td>10h – 11h30</td><td>Collectif adultes</td><td>Karim Diallo</td><td><span class="niv n-deb">Débutant</span></td><td>Court 3</td></tr>
-          <tr><td>Lundi</td><td>17h – 18h30</td><td>École de tennis (5-10 ans)</td><td>Nadia Petit</td><td><span class="niv n-deb">Mini-tennis</span></td><td>Court 1</td></tr>
-          <tr><td>Mardi</td><td>09h – 10h30</td><td>Cours seniors</td><td>Emma Bouchard</td><td><span class="niv n-int">Loisir</span></td><td>Court 4</td></tr>
-          <tr><td>Mardi</td><td>14h – 15h30</td><td>Para tennis</td><td>Sophie Leroy</td><td><span class="niv n-int">Tous niveaux</span></td><td>Court 2</td></tr>
-          <tr><td>Mercredi</td><td>10h – 12h</td><td>Stage jeunes (11-14 ans)</td><td>Nadia Petit</td><td><span class="niv n-int">Intermédiaire</span></td><td>Courts 1 & 2</td></tr>
-          <tr><td>Mercredi</td><td>16h – 18h</td><td>Compétition juniors</td><td>Marc Bernard</td><td><span class="niv n-av">Avancé</span></td><td>Court 5</td></tr>
-          <tr><td>Jeudi</td><td>18h – 20h</td><td>Collectif adultes</td><td>Karim Diallo</td><td><span class="niv n-int">Intermédiaire</span></td><td>Courts 3 & 4</td></tr>
-          <tr><td>Vendredi</td><td>17h30 – 19h</td><td>Entraînement compétition</td><td>Thomas Martin</td><td><span class="niv n-comp">Compétition</span></td><td>Court 1</td></tr>
-          <tr><td>Samedi</td><td>09h – 11h</td><td>Open tous publics</td><td>Marc Bernard</td><td><span class="niv n-deb">Tous niveaux</span></td><td>Court 6</td></tr>
-          <tr><td>Samedi</td><td>14h – 16h</td><td>Para tennis mixte</td><td>Sophie Leroy</td><td><span class="niv n-int">Tous niveaux</span></td><td>Court 2</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p style="font-size:0.78rem;color:var(--muted);margin-top:1.2rem">Pour vous inscrire à un cours, contactez le secrétariat ou <a href="#" onclick="showPage('contact')" style="color:var(--dark);font-weight:600">utilisez le formulaire de contact →</a></p>
-  </section>
-
   <footer>
     <div class="foot-logo">TC TREMBLAY</div>
     <p>© 2026 Tennis Club Tremblaysien · Tous droits réservés</p>
@@ -1230,7 +1180,7 @@ textarea.fi { min-height: 120px; resize: vertical; }
         </div>
       </div>
       <div class="coach">
-        <div class="coach-av" style="background:linear-gradient(135deg,#6b2d1e,#3a1810)">GR</div>
+        <div class="coach-av" style="background:linear-gradient(135deg,#5a2e1e,#3a1c10)">GR</div>
         <div class="coach-info">
           <div class="coach-name">Gabriel RAMTANI</div>
           <div class="coach-role">CQP Stagiaire</div>
@@ -1357,7 +1307,7 @@ textarea.fi { min-height: 120px; resize: vertical; }
       <div>
         <div class="ci-block">
           <h3>Adresse</h3>
-          <div class="ci-row"><div><p>18 Rue Jules Ferry<br>93290 Tremblay-en-France</p></div></div>
+          <div class="ci-row"><div><p>Parc des Sports du Vert-Galant<br>5 Avenue des Sports<br>93290 Tremblay-en-France</p></div></div>
         </div>
 
         <div class="ci-block">
@@ -1370,11 +1320,11 @@ textarea.fi { min-height: 120px; resize: vertical; }
         <div class="ci-block">
           <h3>Horaires d'ouverture</h3>
           <table class="ht">
-            <tr><td>Lundi – Vendredi</td><td>9h00 – 22h00</td></tr>
-            <tr><td>Samedi</td><td>9h00 – 20h00</td></tr>
-            <tr><td>Dimanche</td><td>9h00 – 19h00</td></tr>
+            <tr><td>Lundi – Vendredi</td><td>9h00 – 21h00</td></tr>
+            <tr><td>Samedi</td><td>8h00 – 20h00</td></tr>
+            <tr><td>Dimanche</td><td>9h00 – 18h00</td></tr>
           </table>
-          <p style="font-size:0.76rem;color:var(--muted);margin-top:0.8rem">Secrétariat : Lun–Ven 9h–20h · Samedi 9h–18h</p>
+          <p style="font-size:0.76rem;color:var(--muted);margin-top:0.8rem">Secrétariat : Lun–Ven 14h–18h · Samedi 9h–12h</p>
         </div>
       </div>
 
@@ -1383,11 +1333,11 @@ textarea.fi { min-height: 120px; resize: vertical; }
         <div class="map-box" style="padding:0;height:480px">
           <iframe
             title="Carte TC Tremblay-en-France"
-            src="https://www.google.com/maps?q=18+Rue+Jules+Ferry,+93290+Tremblay-en-France&z=15&output=embed"
+            src="https://www.google.com/maps?q=Parc+des+Sports+du+Vert-Galant+Tremblay-en-France&output=embed"
             width="100%" height="100%" style="border:0;display:block" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        <a href="https://maps.google.com/?q=18+Rue+Jules+Ferry,+93290+Tremblay-en-France" target="_blank" rel="noopener" style="display:inline-block;margin-top:0.9rem;font-size:0.82rem;color:var(--lime-dark);font-weight:700;letter-spacing:0.5px;text-transform:uppercase;text-decoration:none">Ouvrir dans Google Maps →</a>
+        <a href="https://maps.google.com/?q=Parc+des+Sports+du+Vert-Galant+Tremblay-en-France" target="_blank" rel="noopener" style="display:inline-block;margin-top:0.9rem;font-size:0.82rem;color:var(--lime-dark);font-weight:700;letter-spacing:0.5px;text-transform:uppercase;text-decoration:none">Ouvrir dans Google Maps →</a>
       </div>
     </div>
   </section>
@@ -1402,18 +1352,14 @@ textarea.fi { min-height: 120px; resize: vertical; }
 <!-- ══════════════════════ JAVASCRIPT ══════════════════════ -->
 <script>
 // ─── Page navigation ───
-const PAGES = ['accueil', 'tarifs', 'reservation', 'equipe', 'contact'];
-
-function showPage(name, opts) {
-  opts = opts || {};
-  if (!document.getElementById('page-' + name)) name = 'accueil';
+function showPage(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
   const page = document.getElementById('page-' + name);
   if (page) page.classList.add('active');
   const nl = document.getElementById('nl-' + name);
   if (nl) nl.classList.add('active');
-  if (!opts.skipScroll) window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   // Nav transparente + texte blanc en haut de CHAQUE page (en-tête sombre),
   // puis fond clair + texte foncé au défilement.
   const nav = document.getElementById('main-nav');
@@ -1422,28 +1368,7 @@ function showPage(name, opts) {
   setTimeout(initReveal, 100);
   if (name === 'reservation') setTimeout(initResa, 150);
   document.getElementById('main-nav').classList.remove('nav-mobile-open');
-  // Mémorise la page courante dans l'URL (sans recharger) pour qu'un rafraîchissement y revienne.
-  if (!opts.skipHash) {
-    const hash = '#' + name;
-    if (window.location.hash !== hash) {
-      history.replaceState(null, '', hash);
-    }
-  }
 }
-
-// ─── Au chargement / rafraîchissement : rouvrir la page indiquée par l'URL ───
-(function restorePageFromHash() {
-  const name = (window.location.hash || '').replace('#', '');
-  if (name && PAGES.includes(name)) {
-    showPage(name, { skipScroll: true, skipHash: true });
-  }
-})();
-
-// ─── Navigation avec les boutons précédent/suivant du navigateur ───
-window.addEventListener('hashchange', () => {
-  const name = (window.location.hash || '').replace('#', '') || 'accueil';
-  showPage(name, { skipHash: true });
-});
 
 // ─── Mobile hamburger ───
 document.getElementById('hamburger').addEventListener('click', function () {
